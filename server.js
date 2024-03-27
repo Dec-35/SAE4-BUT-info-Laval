@@ -30,7 +30,7 @@ let goldprice;
 let diamantprice;
 
 import Banner from './Banner.js';
-var banner = new Banner();
+let banner = new Banner();
 export {banner};
 
 app.set('view engine', 'ejs');
