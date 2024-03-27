@@ -18,7 +18,7 @@ jobs:
       - uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: sqp_fbb185e8640105e44badd80bf03d83c55007316a
-          SONAR_HOST_URL: http://localhost:9000
+          SONAR_HOST_URL: 172.18.65.35
       # If you wish to fail your job when the Quality Gate is red, uncomment the
       # following lines. This would typically be used to fail a deployment.
       # - uses: sonarsource/sonarqube-quality-gate-action@master
