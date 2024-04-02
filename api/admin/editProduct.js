@@ -44,6 +44,16 @@ router.post('', upload.single('image'), async (req, res) => {
       colors,
     } = req.body;
 
+    // Check if price is negative
+    if (parseFloat(price) < 0) {
+      //delete the uploaded file
+      if (req.file) {
+        fs.unlinkSync(req.file.path);
+      }
+      res.status(403).json({success: false, message: 'Le prix ne peut pas être négatif'});
+      return;
+    }
+
     if (confirm_threashold === '' || confirm_threashold === '0') {
       confirm_threashold = null;
     }
