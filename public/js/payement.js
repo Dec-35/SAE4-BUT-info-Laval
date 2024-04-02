@@ -222,7 +222,7 @@ function checkout(listOfItems) {
     .then((res) => res.json())
     .then((data) => {
       if (data.success) {
-        userAlertGood('Inscription réussie');
+        userAlertGood('Achat réussi !');
         setTimeout(() => {
           window.location.href = '/account';
         }, 1000);
@@ -292,9 +292,6 @@ function removeItemFromCart(id, price) {
 
         if (data.cartSize > 0) {
           cartButton.style.setProperty('--number', `'${data.cartSize}'`);
-        } else {
-          //remove the cartButton number
-          cartButton.style.removeProperty('--number');
         }
 
         //update total
