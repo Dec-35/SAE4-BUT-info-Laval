@@ -3,9 +3,9 @@
   <a href="/#evenements">Evenements</a>
   <a href="/calendar/">Agenda</a>
   <a href="/shop/">Boutique</a>
-  <% if(cartSize > 0) {%>
-    <a id="cartButton" href="/pay/" style="--number: <%= "'"+cartSize+"'" %>">Panier</a>
-  <% } %> 
+  <% if (isLoggedIn) { %>
+  <a id="cartButton" href="/pay/" style="--number: <%= "'"+cartSize+"'" %>">Panier</a>
+  <% } %>
   <button id="themeSwitcher" class="headerButton" onclick="switchTheme(this)">Theme sombre</button>
   <% if (isLoggedIn) { %>
     <a id="loginButton" href="/account/">Mon compte</a>
