@@ -36,6 +36,9 @@ router.get('', async (req, res) => {
   } else var grade = gradeResults['0'].grade;
   req.session.grade = grade;
 
+  // Determine if the user is an admin
+  const isAdmin = req.session.category === 'admin';
+
   res.render('account', {
     username: req.session.username,
     category: req.session.category,
@@ -46,6 +49,7 @@ router.get('', async (req, res) => {
     ironprice: ironprice,
     goldprice: goldprice,
     diamantprice: diamantprice,
+    isAdmin: isAdmin // Pass isAdmin to the template
   });
 });
 export default router;

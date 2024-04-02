@@ -68,4 +68,21 @@ router.get('/products', async (req, res) => {
   }
 });
 
+router.get('/account', async (req, res) => {
+  try {
+    // Vérifiez si l'utilisateur est connecté et s'il est administrateur
+    const isAdmin = req.session.isLoggedIn && req.session.category === 'admin';
+
+    // Rendre la page du compte en transmettant le statut d'administrateur
+    res.render('account', {
+      isAdmin: isAdmin
+    });
+  } catch (err) {
+    console.error('Erreur lors du traitement des requêtes SQL :', err);
+    // Gérer l'erreur comme vous le souhaitez
+    res.status(500).send("Une erreur s'est produite");
+  }
+});
+
+
 export default router;

@@ -33,6 +33,9 @@
         </button>
         <p onclick="window.location.href = '/api/account/logout'">Déconnexion</p>
         <a href="/" id="backButton" class="nonAbsolute">Retour</a>
+        <% if (isAdmin) { %>
+          <a href="/admin" class="vanLink">Panel administrateur</a>
+        <% } %>
       </div>
       <div id="content">
         <div class="spacer" id="hspacer"></div>
@@ -44,9 +47,9 @@
             src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
             alt=""
           />
-          
           <h2><%= username %></h2>
           <p id="xpAmount"><em><%= xp %> xp</em></p>
+          
         </div>
         <div id="personnalInfo">
           <p id="identityP"></p>
