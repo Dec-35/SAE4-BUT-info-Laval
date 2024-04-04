@@ -32,6 +32,7 @@ router.get('', async (req, res) => {
   res.render('shop', {
     cartSize: req.session.cart && req.session.cart.length,
     isLoggedIn: req.session.isLoggedIn,
+    category: req.session.category,
     splashProduct: splashProduct,
     splashImage: splashImage,
     products: products,

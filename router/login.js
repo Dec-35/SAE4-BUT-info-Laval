@@ -13,6 +13,7 @@ router.get('', async (req, res) => {
     verifiedRegisterEmail: isVerified,
     cartSize: req.session.cart && req.session.cart.length,
     isLoggedIn: req.session.isLoggedIn,
+    category: req.session.category,
   });
 });
 export default router;

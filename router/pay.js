@@ -83,7 +83,7 @@ router.get('', async (req, res) => {
       let id = generateEventId(event.start, event.summary);
 
       if (event.description === undefined) return;
-
+      console.log(event)
       var eventDescription = cleanStringToObject(event.description);
       event.price = parseFloat(eventDescription['prix']);
       event.description = eventDescription['description'];
@@ -165,6 +165,7 @@ router.get('', async (req, res) => {
         paypalClientId: process.env.PAYPAL_CLIENT_ID,
         cartSize: itemsToSend && itemsToSend.length,
         isLoggedIn: req.session.isLoggedIn,
+        category: req.session.category,
         cart: itemsToSend,
       });
     });

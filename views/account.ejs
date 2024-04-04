@@ -5,9 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
-
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <title>ADIIL-Espace Compte</title>
   </head>
 
@@ -35,6 +33,27 @@
         <a href="/" id="backButton" class="nonAbsolute">Retour</a>
       </div>
       <div id="content">
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Merci de sélectionner votre classe :</p>
+            <select id="classeSelect">
+              <option value="11A">11A</option>
+              <option value="11B">11B</option>
+              <option value="12C">12C</option>
+              <option value="12D">12D</option>
+              <option value="21A">21A</option>
+              <option value="21B">21B</option>
+              <option value="22C">22C</option>
+              <option value="22D">22D</option>
+              <option value="31A">31A</option>
+              <option value="31B">31B</option>
+              <option value="32C">32C</option>
+              <option value="32D">32D</option>
+            </select>
+            <button id="confirmBtn">Confirmer</button>
+          </div>
+        </div>
         <div class="spacer" id="hspacer"></div>
         <h2 id="hspacerTitle" class="sectionTitle">Infos personnelles</h2>
         <div id="accountDetailsContainer">

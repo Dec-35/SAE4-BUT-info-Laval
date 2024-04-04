@@ -80,6 +80,7 @@ router.get('', async (req, res) => {
       username: req.session.username,
       cartSize: req.session.cart && req.session.cart.length,
       isLoggedIn: req.session.isLoggedIn,
+      category: req.session.category,
       events: events,
       ironprice: ironprice,
       goldprice: goldprice,

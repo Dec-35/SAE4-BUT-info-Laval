@@ -69,6 +69,7 @@ router.get('/:productName', async (req, res) => {
     colors,
     cartSize: req.session.cart && req.session.cart.length,
     isLoggedIn: req.session.isLoggedIn,
+    category: req.session.category,
   });
 });
 

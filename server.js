@@ -12,6 +12,7 @@ import http from 'http';
 import dotenv from 'dotenv';
 dotenv.config();
 import {fromURL} from 'node-ical';
+import { Server } from 'socket.io';
 
 const pool = createPool({
   connectionLimit: 10,
@@ -37,16 +38,18 @@ app.set('view engine', 'ejs');
 
 app.use(json());
 app.use(express.static('public'));
-app.use(
-  session({
-    secret: 'SECRET_COOKIE_KEY',
-    resave: false,
-    saveUninitialized: true,
 
-    cookie: {
-      maxAge: 365 * 24 * 60 * 60 * 1000, // Set the session cookie to last for 1 year (adjust the duration as needed)
-    },
-  })
+const sessionMiddleWare = session({
+  secret: 'fgjfhebjcjksdvd54657654676', 
+  resave: false, 
+  saveUninitialized: true, 
+
+  cookie: {
+    maxAge: 365 * 24 * 60 * 60 * 1000, // Définissez la durée de vie du cookie de session
+  },
+})
+app.use(
+  sessionMiddleWare
 );
 
 let passcodes = {};
@@ -133,6 +136,11 @@ app.get('/leaderboard', async (req, res) => {
     isLoggedIn: req.session.isLoggedIn,
   });
 });
+
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
 //functions stuff
 
 function getVersion() {
@@ -703,7 +711,7 @@ export {
 import fs from 'fs';
 
 const PORT = process.env.PORT || 443;
-https
+let server = https
   .createServer(
     {
       key: fs.readFileSync('server-key.pem'),
@@ -714,5 +722,16 @@ https
   .listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
+
+
+//Socket.io stuff
+const io = new Server(server);
+
+io.engine.use(sessionMiddleWare);
+io.on('connection', (socket) => {
+  socket.on("sendMsg", (msg) => {
+    socket.broadcast.emit("msgReceived", msg);
+  })
+});
 
 export default app;

@@ -13,7 +13,7 @@
   </head>
 
   <body data-theme="light" id="homeBody">
-    <%- include('header', {cartSize, isLoggedIn}) %>
+    <%- include('header', {cartSize, isLoggedIn, category}) %>
 
     <span id="top"></span>
     <div id="accueil">
@@ -199,6 +199,11 @@
       <h1 id="eventsTitle">Les événements</h1>
       <div id="eventsCalendar"></div>
     </div>
+    <!-- Import du module de discussion -->
+    <!-- <% if (isLoggedIn) { %>
+        <%- include('modules/chat.ejs') %>
+    <% } %> -->
+    <%- include('modules/chat.ejs') %>
     <footer>
       <ul>
         <li><a href="/legal">Mentions légales</a></li>

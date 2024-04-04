@@ -30,6 +30,7 @@ router.get('', async (req, res) => {
     step,
     cartSize: req.session.cart && req.session.cart.length,
     isLoggedIn: req.session.isLoggedIn,
+    category: req.session.category,
     passcode: 0,
   });
 });

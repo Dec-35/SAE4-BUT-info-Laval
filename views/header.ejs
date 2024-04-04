@@ -6,6 +6,9 @@
   <% if(cartSize > 0) {%>
     <a id="cartButton" href="/pay/" style="--number: <%= "'"+cartSize+"'" %>">Panier</a>
   <% } %> 
+  <% if (category === 'admin') { %>
+    <a href="/admin" class="adminButton">Panneau d'administration</a>
+  <% } %>
   <button id="themeSwitcher" class="headerButton" onclick="switchTheme(this)">Theme sombre</button>
   <% if (isLoggedIn) { %>
     <a id="loginButton" href="/account/">Mon compte</a>
